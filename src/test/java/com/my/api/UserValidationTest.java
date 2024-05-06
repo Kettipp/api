@@ -2,14 +2,12 @@ package com.my.api;
 
 import com.my.api.model.User;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
 public class UserValidationTest {
     private static final int AGE = 18;
     @Test
