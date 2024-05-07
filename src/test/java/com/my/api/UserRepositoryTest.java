@@ -27,7 +27,7 @@ public class UserRepositoryTest {
         User expected = User.builder().firstName("Miranda").lastName("Smith").build();
         repository.save(expected);
 
-        User actual = repository.findById(1);
+        User actual = repository.findById(1).get();
         assertEquals(expected, actual);
     }
 
@@ -36,7 +36,7 @@ public class UserRepositoryTest {
         User expected = User.builder().firstName("Miranda").lastName("Smith").email("smith@com.ua").build();
         repository.save(expected);
 
-        User actual = repository.findByEmail("smith@com.ua");
+        User actual = repository.findByEmail("smith@com.ua").get();
         assertEquals(expected, actual);
     }
 

@@ -1,6 +1,5 @@
 package com.my.api.model.repository.impl;
 
-import com.my.api.exception.UserNotFoundException;
 import com.my.api.model.User;
 import com.my.api.model.repository.UserRepository;
 import org.springframework.stereotype.Repository;
@@ -13,7 +12,6 @@ import java.util.Optional;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
-    private static final String USER_NOT_FOUND_EXCEPTION_MESSAGE = "User not found";
     private static final String DELETE_SUCCESS_MESSAGE = "Success";
     private final Map<Long, User> storage = new HashMap<>();
     private long lastId = 0;
@@ -26,19 +24,16 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User findById(long id) {
-        return Optional
-                .of(storage.get(id))
-                .orElseThrow(() -> new UserNotFoundException(USER_NOT_FOUND_EXCEPTION_MESSAGE));
+    public Optional<User> findById(long id) {
+        return Optional.ofNullable(storage.get(id));
     }
 
     @Override
-    public User findByEmail(String email) {
+    public Optional<User> findByEmail(String email) {
         return storage.values()
                 .stream()
                 .filter(u -> u.getEmail().equals(email))
-                .findAny()
-                .orElseThrow(() -> new UserNotFoundException(USER_NOT_FOUND_EXCEPTION_MESSAGE));
+                .findAny();
     }
 
     @Override
