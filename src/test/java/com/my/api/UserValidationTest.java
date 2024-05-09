@@ -33,4 +33,6 @@ public class UserValidationTest {
 
         assertTrue(user.isAdult(AGE));
     }
+
+
 }

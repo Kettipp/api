@@ -1,7 +1,7 @@
-package com.my.api.model.repository.impl;
+package com.my.api.repository.impl;
 
 import com.my.api.model.User;
-import com.my.api.model.repository.UserRepository;
+import com.my.api.repository.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
-    private static final String DELETE_SUCCESS_MESSAGE = "Success";
     private final Map<Long, User> storage = new HashMap<>();
     private long lastId = 0;
     @Override
@@ -37,9 +36,8 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public String deleteById(long id) {
+    public void deleteById(long id) {
          storage.remove(id);
-        return DELETE_SUCCESS_MESSAGE;
     }
 
     @Override
