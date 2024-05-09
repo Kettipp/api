@@ -1,8 +1,8 @@
-package com.my.api;
+package com.my.api.repo;
 
 import com.my.api.model.User;
-import com.my.api.model.repository.UserRepository;
-import com.my.api.model.repository.impl.UserRepositoryImpl;
+import com.my.api.repository.UserRepository;
+import com.my.api.repository.impl.UserRepositoryImpl;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

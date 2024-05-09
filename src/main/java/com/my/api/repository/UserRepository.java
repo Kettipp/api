@@ -1,4 +1,4 @@
-package com.my.api.model.repository;
+package com.my.api.repository;
 
 import com.my.api.model.User;
 
@@ -10,6 +10,6 @@ public interface UserRepository {
     long save(User user);
     Optional<User> findById(long id);
     Optional<User> findByEmail(String email);
-    String deleteById(long id);
+    void deleteById(long id);
     List<User> findUsersByBirthDate(LocalDate start, LocalDate end);
 }
